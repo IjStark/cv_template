@@ -1,0 +1,138 @@
+% !TeX program = lualatex
+\documentclass[12pt, a4paper, titlepage]{article}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage{sectsty}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{ragged2e}
+\usepackage{fontspec}
+
+%% -- Page margin
+\geometry{
+	a4paper,
+	left=10mm,
+	right=10mm,
+	top=10mm,
+	bottom=10mm
+}
+
+%% -- FONT OF SECTION AND SUBSECTIONS
+\setmainfont[
+BoldFont={OpenSans-Bold.ttf}, 
+ItalicFont={OpenSans-Italic.ttf},
+BoldItalicFont={OpenSans-BoldItalic.ttf}
+]{OpenSans-Regular.ttf}
+\subsectionfont{\normalfont\large\itshape}
+\sectionfont{\large\bfseries\centering}
+
+%% SPACING SECTION SUBSECTION 
+\titlespacing*{\section} {0pt}{2.5ex plus 1ex minus .2ex}{1.3ex plus .2ex}
+\titlespacing*{\subsection} {0pt}{0pt}{0pt}
+
+%% -- COLORS
+\definecolor{grey}{RGB}{180,180,180}
+\definecolor{lightGrey}{RGB}{210,210,210}
+\definecolor{white}{RGB}{255,255,255}
+
+
+%% -- hyperlink style
+\hypersetup{
+	colorlinks,
+	linkcolor={red!50!black},
+	citecolor={blue!50!black},
+	urlcolor={blue!80!black}
+}
+
+%% -- colorbox makro
+\definecolor{shadecolor}{RGB}{150,150,150}
+\newcommand{\mybox}[2]{\par\noindent\colorbox{#1}
+{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{#2}}}
+
+
+\begin{document}
+\pagenumbering{gobble}% Remove page numbers (and reset to 1)
+\clearpage
+
+\mybox{grey}{
+	\begin{minipage}{.38\textwidth}
+		% profil picture + scaling
+		\includegraphics[scale=0.2]{profil.jpg} 
+	\end{minipage}
+	\begin{minipage}{.62\textwidth}
+		\textbf{\huge NAME} \\ 
+		\textit{\large SLOGAN} \\
+		\href{mailto:mail@mail.mail}{MAIL}
+	\end{minipage}
+}
+%% -- LEFT COLUMN
+\begin{minipage}[t]{.38\textwidth}
+	\vspace{0pt}
+	\begin{flushleft}
+		
+		%% -- EXAMPLE BOX
+		\mybox{lightGrey}{\leftskip2mm
+			\subsection*{EDUCATION}
+			\hrule
+			\vskip2mm
+			\textbf{UNDERGRADE} \\
+			UNIVERSITY \\
+			2013-2016
+		}
+		
+		%% -- SKILLS
+		\mybox{lightGrey}{
+		\subsection*{SKILLS}
+		\hrule
+		\vskip2mm
+		\begin{tabular}{l l}
+			\textit{Languages}: & German \\
+			 & English \\
+			\textit{Programming}: & bash, perl \\
+			 & java \\
+			 & javascript \\
+			 & html, css \\
+			 & powershell \\
+			\textit{Operationsystems}: & Linux \\
+			 & Windows \\
+			\textit{Software}: & Icinga \\
+			& vCenter Or. \\
+			& MySql \\
+			& Tomcat \\
+			\textit{other}: & Microsoft Excel \\
+		\end{tabular}
+		}
+		
+		%% -- add more sections for left side !
+	\end{flushleft} 
+\end{minipage}
+\hfill
+%% -- RIGHT COLUMN
+\begin{minipage}[t]{.62 \textwidth}
+	\vspace{0pt}
+	\begin{flushleft}
+		
+		%% -- PERSONAL DETAILS
+		\subsection*{PERSONAL DETAILS}
+		\hrule
+		\vskip2mm
+		\begin{tabular}{l l}
+		\textit{Birth}: & Birth \\
+		\textit{Address}: & Address \\
+		\textit{Phone}: & Phone \\
+		\textit{Mail}: & \href{mailto:your@mail.here}{mymail}	
+		\end{tabular}
+		
+		\vskip3mm
+		
+		\subsection*{WORK EXPERIENCE}
+		\hrule
+		\vskip2mm
+		\leftskip2mm
+		ADD ENTRIES
+	\end{flushleft}
+\end{minipage}
+\end{document}
