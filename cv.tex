@@ -48,7 +48,6 @@ BoldItalicFont={OpenSans-BoldItalic.ttf}
 }
 
 %% -- colorbox makro
-\definecolor{shadecolor}{RGB}{150,150,150}
 \newcommand{\mybox}[2]{\par\noindent\colorbox{#1}
 {\parbox{\dimexpr\textwidth-2\fboxsep\relax}{#2}}}
 
@@ -57,57 +56,50 @@ BoldItalicFont={OpenSans-BoldItalic.ttf}
 \pagenumbering{gobble}% Remove page numbers (and reset to 1)
 \clearpage
 
+%% -- create the Header, change all >marked< areas and uncomment "includegraphics".
 \mybox{grey}{
-	\begin{minipage}{.38\textwidth}
-		% profil picture + scaling
-		%\includegraphics[scale=0.2]{profil.jpg} 
+	\begin{minipage}{.3\textwidth}
+		%\includegraphics[scale=0.2]{>pathToImage<} 
 	\end{minipage}
-	\begin{minipage}{.62\textwidth}
-		\textbf{\huge NAME} \\ 
-		\textit{\large SLOGAN} \\
-		\href{mailto:mail@mail.mail}{MAIL}
+	\begin{minipage}{.7\textwidth}
+		\textbf{\huge >your name} \\ 
+		\textit{\large >profession<} \\
+		\href{mailto:>your email<}{>your email<}
 	\end{minipage}
 }
 %% -- LEFT COLUMN
-\begin{minipage}[t]{.38\textwidth}
+\begin{minipage}[t]{.36\textwidth}
 	\vspace{0pt}
-	\begin{flushleft}
-		
-		%% -- EXAMPLE BOX
-		\mybox{lightGrey}{\leftskip2mm
-			\subsection*{EDUCATION}
-			\hrule
-			\vskip2mm
-			\textbf{UNDERGRADE} \\
-			UNIVERSITY \\
-			2013-2016
-		}
-		
-		%% -- SKILLS
-		\mybox{lightGrey}{
-		\subsection*{SKILLS}
+	\mybox{lightGrey}{\begin{flushleft}
+			
+		%% -- PERSONAL DETAILS
+		\subsection*{PERSONAL DETAILS}
 		\hrule
 		\vskip2mm
 		\begin{tabular}{l l}
-			\textit{Languages}: & German \\
-			 & English \\
-			\textit{Programming}: & bash, perl \\
-			 & java \\
-			 & javascript \\
-			 & html, css \\
-			 & powershell \\
-			\textit{Operationsystems}: & Linux \\
-			 & Windows \\
-			\textit{Software}: & Icinga \\
-			& vCenter Or. \\
-			& MySql \\
-			& Tomcat \\
-			\textit{other}: & Microsoft Excel \\
-		\end{tabular}
-		}
-		
-		%% -- add more sections for left side !
-	\end{flushleft} 
+			\textit{Nationality}: & >nationality< \\
+			\textit{Birth}: & >birth< \\
+			\textit{Address}: & >Address< \\
+		 & >postcode< \\
+			\textit{Phone}: & >Phone< \\
+			\textit{Mail}: & \href{mailto:>email<}{>email<}	
+		\end{tabular}	
+	
+		\vskip5mm
+	    
+	    %% -- LINKS
+	    \leftskip2mm
+	    \subsection*{LINKS}
+	    \hrule
+	    \vskip2mm
+	    % Add or delete links as seen in the example
+	    \href{https://github.com/IjStark}{GitHub} \\
+	    
+	    \vskip165mm
+	\end{flushleft}} 
+\end{minipage}
+\hfill
+\begin{minipage}[t]{.02 \textwidth}
 \end{minipage}
 \hfill
 %% -- RIGHT COLUMN
@@ -115,24 +107,58 @@ BoldItalicFont={OpenSans-BoldItalic.ttf}
 	\vspace{0pt}
 	\begin{flushleft}
 		
-		%% -- PERSONAL DETAILS
-		\subsection*{PERSONAL DETAILS}
+		\vskip5mm
+		
+		\subsection*{SKILLS}
 		\hrule
 		\vskip2mm
+		\leftskip0mm
 		\begin{tabular}{l l}
-		\textit{Birth}: & Birth \\
-		\textit{Address}: & Address \\
-		\textit{Phone}: & Phone \\
-		\textit{Mail}: & \href{mailto:your@mail.here}{mymail}	
+			%% add your skills here as seen in examples
+			\textit{Languages}: & language skills\\
+			\textit{Programming}: & programming skills\\
+			 & even more programming skills
 		\end{tabular}
+	
+		\vskip5mm
 		
-		\vskip3mm
+		%% -- EDUCATION
+		\subsection*{EDUCATION}
+		\hrule
+		\vskip2mm
+		\leftskip2mm
+		%% -- modify, add or delete entries as seen in example entries
+		%% -- example entry
+		\textbf{SCHOOL} \\
+		Abitur \\
+		2004-2012
+		
+		\vskip2mm
+		
+		%% -- another example entry
+		\textbf{TU Berlin} \\
+		B.SC Informatics \\
+		2013-now
+		
+		\vskip5mm
 		
 		\subsection*{WORK EXPERIENCE}
 		\hrule
 		\vskip2mm
 		\leftskip2mm
-		ADD ENTRIES
+		
+		%% -- modify, add or delete entries as seen in example entries
+		%% -- example entry
+		\textbf{Internship} \hfill 09.2012 - 11.2012 \\
+		\textit{COMPANY} \\
+		explanation, tasks \\
+		
+		\vskip3mm
+		
+		%% -- another example entry
+		\textbf{employee} \hfill duration \\
+		\textit{COMPANY} \\
+		explanation, tasks \\
 	\end{flushleft}
 \end{minipage}
 \end{document}
